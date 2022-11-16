@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./helpers";
+@import "./hamburger";
+@import "./transitions";
+@import "./fonts";
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css");
+
+html,
+body {
+  @apply relative max-w-full overflow-x-hidden;
+  &.no-scroll {
+    overflow: hidden !important;
+  }
+}
+body {
+  @apply bg-brand-primary bg-cover bg-center bg-no-repeat font-primary;
+  background-image: url("~/assets/img/bg/bg-body.jpg");
+}
+.hero {
+  @apply flex flex-col items-center justify-between lg:flex-row;
+  &-left {
+    @apply w-full space-y-5 md:space-y-10 lg:w-[60%];
+  }
+  &-right {
+    @apply flex items-center justify-center lg:w-[30%];
+    img {
+      @apply w-full;
+    }
+  }
+}
+.choose-bracelet {
+  @apply flex flex-col-reverse items-center justify-center lg:flex-row;
+  &-image {
+    @apply mt-5 w-full rounded-2xl border border-gray-300 px-10 py-16 md:mt-0 md:px-24 md:py-32 lg:w-1/2 2xl:w-[40%] 2xl:px-32 2xl:py-40;
+    img {
+      @apply h-full w-full;
+    }
+  }
+  &-data {
+    @apply ml-5 w-full space-y-2 lg:w-1/2 lg:space-y-3 2xl:w-[40%];
+    .cost-wrapper {
+      @apply flex items-end;
+      .cost-new {
+        @apply mr-3 text-2xl font-semibold text-brand-gold;
+      }
+      .cost-old {
+        @apply font-semibold text-brand-dark line-through opacity-40;
+      }
+    }
+    .description {
+      @apply text-brand-dark opacity-80;
+    }
+    .colors-wrapper {
+      @apply flex-wrap items-center font-semibold;
+      &-item {
+        @apply relative mr-3 h-7 w-7 rounded-full;
+        &:after {
+          content: "";
+          @apply invisible absolute left-1/2 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 scale-90 rounded-full bg-white opacity-0 transition-all duration-300 ease-in-out;
+        }
+        &.active {
+          &:after {
+            @apply visible scale-100 opacity-100;
+          }
+        }
+      }
+    }
+  }
+}
+.questions {
+  background-image: url("~/assets/img/bg/bg-faq.png");
+}
+.basket {
+  @apply flex flex-col justify-between lg:flex-row;
+  &__left {
+    @apply w-full lg:w-[65%] 2xl:w-[75%];
+  }
+  &__right {
+    @apply w-full lg:w-[30%] 2xl:w-[23%];
+  }
+}
+.slider-certificate {
+  .swiper {
+    overflow: visible !important;
+    .certificate {
+      @apply scale-100 transition-all duration-300 ease-in-out;
+    }
+    .swiper-slide-active {
+      .certificate {
+        @apply scale-110;
+        img {
+          @apply h-full object-cover;
+        }
+      }
+    }
+  }
+}
+// GENERAL MODALS START
+.modal-general {
+  @apply invisible fixed top-0 left-0 z-[99] flex h-full w-full items-center justify-center bg-black bg-opacity-50 opacity-0 transition-all duration-500 ease-in-out;
+  .modal-general-main {
+    @apply translate-y-full;
+  }
+  // UNIQUE CLASS MODALS START
+  &.auth-modal {
+    .auth-modal-main {
+      @apply relative w-[90%] rounded-3xl bg-white py-5 transition-all duration-500 ease-in-out md:w-[400px] md:py-10;
+    }
+  }
+  &.call-modal {
+    .call-modal-main {
+      @apply w-[90%] space-y-4 rounded-3xl bg-white px-6 py-5 transition-all duration-500 ease-in-out md:w-[400px] md:py-10;
+    }
+  }
+  &.questions-modal {
+    .questions-modal-main {
+      @apply w-[90%] space-y-4 rounded-3xl bg-white px-6 py-5 transition-all duration-500 ease-in-out md:w-[400px] md:py-10;
+    }
+  }
+  // UNIQUE CLASS MODALS END
+
+  // ANIMATION MODALS START
+  &.show {
+    @apply visible opacity-100 transition-all duration-500 ease-in-out;
+    .modal-general-main {
+      @apply translate-y-0 transition-all duration-500 ease-in-out;
+    }
+  }
+  // ANIMATION MODALS END
+}
+// GENERAL MODALS END
+.input-auth-wrapper {
+  @apply flex items-center rounded-full bg-brand-gray px-5;
+  .input-auth-icon {
+    svg {
+      fill: #d1d1d1;
+    }
+  }
+  .input-auth-divide {
+    @apply ml-4 mr-1 h-5 w-[2px];
+    background-color: #d1d1d1;
+  }
+}

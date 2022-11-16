@@ -1,0 +1,124 @@
+.content {
+  @apply px-4 md:px-14 lg:px-24 2xl:px-40;
+}
+.y-distance {
+  @apply py-10 md:py-14 lg:py-20 2xl:py-24;
+}
+.heading {
+  &-big {
+    @apply text-4xl font-bold md:text-7xl 2xl:text-[90px];
+  }
+  &-primary {
+    @apply text-2xl font-semibold lg:text-3xl 2xl:text-4xl;
+  }
+  &-secondary {
+    @apply text-xl font-semibold md:text-2xl 2xl:text-3xl;
+  }
+}
+.link {
+  @apply relative text-white;
+  &:hover {
+    &:after {
+      @apply visible -bottom-1 opacity-100;
+    }
+  }
+  &:after {
+    content: "";
+    @apply invisible absolute left-0 -bottom-4 h-[2px] w-full bg-white opacity-0 transition-all duration-500 ease-in-out;
+  }
+}
+.dark-mask {
+  @apply relative;
+  &:after {
+    content: "";
+    @apply absolute left-0 top-0 h-full w-full bg-brand-dark bg-opacity-80;
+  }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+@keyframes animatetop {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 0;
+  }
+  100% {
+    height: 8px * 1;
+  }
+}
+@keyframes animatebottom {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 0;
+  }
+  100% {
+    height: 8px/1.9;
+  }
+}
+.input {
+  &-primary {
+    @apply w-full rounded-full bg-brand-gray px-5 py-4 text-center outline-none;
+    &:focus {
+      @apply bg-white outline-brand-accent-first;
+    }
+  }
+  &-auth {
+    @apply w-full bg-brand-gray px-1 py-5 outline-none;
+    &:focus {
+      .input-auth-wrapper {
+        @apply bg-white outline-brand-accent-first;
+      }
+    }
+  }
+  &-auth-password {
+    @apply w-full rounded-full bg-brand-gray px-7 py-5 outline-none;
+  }
+}
+input[type="checkbox"] {
+  @apply relative top-1/2 inline-block h-[16px] w-[16px] cursor-pointer rounded border-[2px] border-brand-primary border-opacity-30 bg-white outline-none;
+  -webkit-appearance: none;
+  transition: background-color 0.3s ease, border 0.3s ease;
+  &:hover {
+    background-color: lighten(#f8f8f8, 50%);
+  }
+  &::before,
+  &::after {
+    @apply absolute inline-block h-0 rounded bg-white;
+    width: 8px * 0.22;
+    -webkit-transform-origin: left top;
+    margin: -1px 0 0 -4px;
+    content: "";
+  }
+  &::before {
+    top: 8px * 0.62;
+    left: 8px * 0.42;
+    -webkit-transform: rotate(-135deg);
+  }
+  &::after {
+    top: 8px * 0.26;
+    left: 8px * 0.02;
+    -webkit-transform: rotate(-45deg);
+  }
+  &:checked {
+    background-color: #ffffff;
+    border: 8px solid #80e3d0;
+
+    &::before,
+    &::after {
+      box-shadow: 0 0 0 8px * 0.05 #ffffff;
+    }
+    &::before {
+      height: 8px * 1;
+      -webkit-animation: animatetop 0.3s ease;
+    }
+    &::after {
+      height: 8px * 0.5;
+      -webkit-animation: animatebottom 0.3s ease;
+    }
+  }
+}
