@@ -13,8 +13,8 @@
             :styles="'link'"
             >Войти</PartsUIButton
           >
-          <div class="mx-2 h-4 w-[2px] rounded-full bg-white"></div>
-          <PartsUIButton :styles="'link'">зарегистрироваться</PartsUIButton>
+          <!-- <div class="mx-2 h-4 w-[2px] rounded-full bg-white"></div>
+          <PartsUIButton :styles="'link'">зарегистрироваться</PartsUIButton> -->
         </div>
       </div>
       <a href="/" class="logo z-40">

@@ -45,7 +45,7 @@
           </div>
 
           <PartsUIButton :styles="'btn-primary'"
-            >Заказать браслет</PartsUIButton
+            >Добавить в корзину</PartsUIButton
           >
         </div>
       </div>

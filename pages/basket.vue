@@ -4,11 +4,7 @@
       <div class="content y-distance bg-white">
         <div class="basket">
           <div class="basket__left">
-            <h1 class="heading-primary text-brand-dark">Корзина</h1>
-            <div class="">
-              <PartsProduct />
-              <PartsProduct />
-            </div>
+            <PartsBasketProducts />
           </div>
           <div class="basket__right">
             <PartsPaymentSidebar />
